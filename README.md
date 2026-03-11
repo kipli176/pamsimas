@@ -131,20 +131,26 @@ pamsimas/
 │   │   ├── models/         # SQLAlchemy Models
 │   │   ├── schemas/        # Pydantic Schemas
 │   │   └── utils/          # Helper Functions
-│   ├── schema.sql          # Database Schema
+│   ├── schema.sql          # Database Schema (detailed)
+│   ├── uploads/            # Upload directory (foto meteran)
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── frontend/               # JavaScript Frontend
+│   ├── assets/            # Icons & images
 │   ├── css/               # Stylesheets
 │   ├── js/                # JavaScript modules
 │   ├── index.html         # Login page
-│   └── dashboard.html     # Main dashboard
+│   ├── dashboard.html     # Main dashboard
+│   ├── manifest.webmanifest
+│   └── service-worker.js  # PWA support
 ├── docs/                  # Documentation
+│   ├── migrations/        # Historical migrations (obsolete)
 │   ├── METERAN_AWAL_IMPLEMENTATION.md
 │   ├── RT_RW_IMPLEMENTATION.md
 │   └── THERMAL_PRINT_README.md
-├── database_schema.sql    # Complete Schema
+├── database_schema.sql    # Complete Schema (with triggers & views)
 ├── docker-compose.yml     # Docker Setup
+├── nginx.conf             # Nginx configuration
 ├── PANDUAN_PENGGUNAAN.md  # User Guide
 └── README.md              # This file
 ```
