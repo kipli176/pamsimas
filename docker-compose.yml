@@ -6,8 +6,8 @@ services:
     image: postgres:15-alpine
     container_name: pamsimas_db
     environment:
-      POSTGRES_USER: pamsimas
-      POSTGRES_PASSWORD: pamsimas123
+      POSTGRES_USER: kipli_user
+      POSTGRES_PASSWORD: kipli_password
       POSTGRES_DB: pamsimas_db
     ports:
       - "5432:5432"
@@ -17,7 +17,7 @@ services:
     networks:
       - pamsimas_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U pamsimas"]
+      test: ["CMD-SHELL", "pg_isready -U kipli_user"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,34 +29,55 @@ services:
       dockerfile: Dockerfile
     container_name: pamsimas_backend
     environment:
-      DATABASE_URL: postgresql://pamsimas:pamsimas123@db:5432/pamsimas_db
-      SECRET_KEY: your-secret-key-change-this-in-production
+      # Database
+      DATABASE_URL: postgresql://kipli_user:kipli_password@db:5432/pamsimas_db
+
+      # Security
+      SECRET_KEY: your-secret-key-change-this-in-production-min-32-chars
       ALGORITHM: HS256
       ACCESS_TOKEN_EXPIRE_MINUTES: 300
+
+      # API Configuration
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+
+      # CORS
+      FRONTEND_URL: http://localhost:8080
+
+      # Upload Configuration
+      UPLOAD_DIR: /app/uploads/foto_meteran
+      MAX_UPLOAD_SIZE: 5242880  # 5MB
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/app
-      - ./uploads:/app/uploads  # Untuk upload foto meteran
+      - ./backend/uploads:/app/uploads  # Fix: path uploads yang benar
     depends_on:
       db:
         condition: service_healthy
     networks:
       - pamsimas_network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
-  # Frontend (Serve dengan Python http.server untuk development)
+  # Frontend (Static files served with nginx)
   frontend:
-    image: python:3.11-alpine
+    image: nginx:alpine
     container_name: pamsimas_frontend
-    working_dir: /app
     ports:
-      - "8080:8080"
+      - "8080:80"
     volumes:
-      - ./frontend:/app
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
     networks:
       - pamsimas_network
-    command: python -m http.server 8080
+    restart: unless-stopped
 
 volumes:
   postgres_data:

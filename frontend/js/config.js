@@ -1,5 +1,9 @@
 // API Configuration
-const API_BASE_URL = 'http://localhost:8000/api';
+// Use relative path for production (when served by nginx)
+// Use absolute URL for local development (when opening HTML file directly)
+const API_BASE_URL = window.location.protocol === 'file:'
+    ? 'http://localhost:8000/api'  // Development: direct file access
+    : '/api';                        // Production: served by nginx
 
 // Storage keys
 const STORAGE_KEYS = {
