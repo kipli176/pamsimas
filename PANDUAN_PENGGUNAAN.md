@@ -1,5 +1,5 @@
 # 📘 PANDUAN PENGGUNAAN SISTEM PAMSIMAS
-**Sistem Manajemen Air Minum PAMDesa Candinegara**
+**Sistem Manajemen Air PAMDesa**
 
 ---
 
@@ -453,7 +453,7 @@ Admin bisa print nota dari pembayaran mana pun.
 
 **Contoh Perhitungan Gaji:**
 ```
-Petugas: Arif Candinegara
+Petugas: Arif
 Jumlah Pelanggan: 2
 Biaya per Pelanggan: Rp 2.000
 Total Gaji: 2 × Rp 2.000 = Rp 4.000
@@ -700,8 +700,8 @@ Hubungi developer atau cek file `database_schema.sql` untuk nilai default.
 Jika mengalami masalah yang tidak tertera di atas:
 
 ### Kontak Technical Support
-- **Email:** support@pamsimas.com
-- **Telepon:** 0812345678
+- **Email:** kipli176@gmail.com
+- **Telepon:** 08562603077
 - **Jam Operasional:** Senin - Jumat (08:00 - 17:00)
 
 ### Dokumentasi Lengkap
@@ -744,6 +744,6 @@ Untuk tutorial visual, kunjungi:
 
 ---
 
-**© 2026 PAMDesa Candinegara. All rights reserved.**
+**© 2026 PAMDesa. All rights reserved.**
 
 *Dokumentasi ini dibuat untuk memudahkan penggunaan Sistem PAMSIMAS.*

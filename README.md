@@ -216,7 +216,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🎉 Acknowledgments
 
-- Built with ❤️ for PAMDesa Candinegara
+- Built with ❤️ for PAMDesa Seluruh Indonesia
 - Inspired by real-world water management needs
 
 ---
