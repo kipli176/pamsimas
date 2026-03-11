@@ -80,8 +80,7 @@ docker-compose up -d
 ## 📖 Documentation
 
 - **[Panduan Pengguna](PANDUAN_PENGGUNAAN.md)** - Panduan lengkap untuk Admin & Petugas
-- **[API Documentation](http://localhost:8000/docs)** - Swagger UI
-- **[Implementation Guides](docs/)** - Dokumentasi teknis
+- **[API Documentation](http://localhost:8000/docs)** - Swagger UI (klik di docs/ → FastAPI)
 
 ## 🗄️ Database Schema
 
@@ -143,11 +142,6 @@ pamsimas/
 │   ├── dashboard.html     # Main dashboard
 │   ├── manifest.webmanifest
 │   └── service-worker.js  # PWA support
-├── docs/                  # Documentation
-│   ├── migrations/        # Historical migrations (obsolete)
-│   ├── METERAN_AWAL_IMPLEMENTATION.md
-│   ├── RT_RW_IMPLEMENTATION.md
-│   └── THERMAL_PRINT_README.md
 ├── database_schema.sql    # Complete Schema (with triggers & views)
 ├── docker-compose.yml     # Docker Setup
 ├── nginx.conf             # Nginx configuration
