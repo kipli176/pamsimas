@@ -1,0 +1,178 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Environment Variables (IMPORTANT!)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Database (IMPORTANT - don't upload production data!)
+*.db
+*.sqlite
+*.sqlite3
+database.db
+*.sql.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Uploads & User Content (IMPORTANT!)
+backend/uploads/foto_meteran/*
+!backend/uploads/foto_meteran/.gitkeep
+uploads/
+temp/
+tmp/
+
+# Docker
+docker-compose.override.yml
+
+# Test Scripts (local testing only)
+audit_detail.sh
+audit_sistem.sh
+test_all_features.sh
+test_features_v2.sh
+agent.py
+
+# Backup Files
+backup_restore.bat
+backup_restore.sh
+*.backup
+*.bak
+
+# Node.js (if using npm)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Redis
+*.rdb
+
+# Local development files
+*.local
+local.*
+
+# Documentation builds
+docs/_build/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~.nib
+
+# Package Files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Sensitive Credentials
+*secret*
+*credentials*
+*.pem
+*.key
+*.cert
+*.crt
+
+# Cloudflare Tunnel URLs (if any)
+cloudflare-*
+
+# Session data
+session/
+sessions/
+
+# Lock files
+*.lock

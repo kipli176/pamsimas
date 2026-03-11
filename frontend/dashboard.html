@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>PAMSIMAS - Dashboard</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>💧 PAMSIMAS</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Menu Utama</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="nav-link active" data-page="dashboard">
+                            <b class="icon">🏠</b>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="petugas-only admin-only">
+                        <a href="#" class="nav-link" data-page="pelanggan">
+                            <b class="icon">👥</b>
+                            <span>Pelanggan</span>
+                        </a>
+                    </li>
+                    <li class="petugas-only admin-only">
+                        <a href="#" class="nav-link" data-page="pencatatan">
+                            <b class="icon">📝</b>
+                            <span>Pencatatan</span>
+                        </a>
+                    </li>
+                    <li class="petugas-only">
+                        <a href="#" class="nav-link" data-page="pembayaran">
+                            <b class="icon">💰</b>
+                            <span>Pembayaran</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section admin-only">
+                <h3>Laporan</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="nav-link" data-page="laporan">
+                            <b class="icon">📊</b>
+                            <span>Laporan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-page="kroscek">
+                            <b class="icon">✅</b>
+                            <span>Slip Gaji</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-section admin-only">
+                <h3>Admin</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="nav-link" data-page="tarif">
+                            <b class="icon">⚙️</b>
+                            <span>Tarif</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-page="pengaturan">
+                            <b class="icon">🔧</b>
+                            <span>Pengaturan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-page="users">
+                            <b class="icon">👤</b>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <span class="user-name" id="currentUserName">User</span>
+                <span class="user-role" id="currentUserRole">Role</span>
+            </div>
+            <button id="logoutBtn" class="btn btn-logout">
+                <b class="icon">🚪</b> Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <button id="toggleSidebar" class="btn btn-icon">
+                <b class="icon">☰</b>
+            </button>
+
+            <div class="page-title">
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="topbar-actions">
+                <span class="date" id="currentDate"></span>
+            </div>
+        </header>
+
+        <div class="content-wrapper" id="contentWrapper">
+            <!-- Dynamic content will be loaded here -->
+        </div>
+    </main>
+
+    <!-- Modal Template -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Modal Title</h3>
+                <button class="btn btn-icon btn-close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" style="display: none;">
+        <span id="toastMessage"></span>
+        <button class="btn btn-icon btn-close-toast">&times;</button>
+    </div>
+
+    <!-- JsBarcode Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+    <!-- Main.js MUST be loaded first -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Page scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/pelanggan.js"></script>
+    <script src="js/pencatatan.js"></script>
+    <script src="js/pembayaran.js"></script>
+    <script src="js/laporan.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

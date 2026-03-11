@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: pamsimas_db
+    environment:
+      POSTGRES_USER: pamsimas
+      POSTGRES_PASSWORD: pamsimas123
+      POSTGRES_DB: pamsimas_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database_schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - pamsimas_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pamsimas"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pamsimas_backend
+    environment:
+      DATABASE_URL: postgresql://pamsimas:pamsimas123@db:5432/pamsimas_db
+      SECRET_KEY: your-secret-key-change-this-in-production
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 300
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./uploads:/app/uploads  # Untuk upload foto meteran
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - pamsimas_network
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend (Serve dengan Python http.server untuk development)
+  frontend:
+    image: python:3.11-alpine
+    container_name: pamsimas_frontend
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app
+    networks:
+      - pamsimas_network
+    command: python -m http.server 8080
+
+volumes:
+  postgres_data:
+
+networks:
+  pamsimas_network:
+    driver: bridge

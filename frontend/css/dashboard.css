@@ -1,0 +1,511 @@
+/* Dashboard Layout */
+body {
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #1f2937;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #374151;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+}
+
+.nav-section {
+    margin-bottom: 1.5rem;
+}
+
+.nav-section h3 {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+}
+
+.nav-section ul {
+    list-style: none;
+}
+
+.nav-section li {
+    margin-bottom: 0.25rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    color: #d1d5db;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #374151;
+    color: white;
+}
+
+.nav-link.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.nav-link .icon {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #374151;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.user-name {
+    font-weight: 600;
+    color: white;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    background-color: #374151;
+    color: #d1d5db;
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #4b5563;
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Topbar */
+.topbar {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+#toggleSidebar {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.page-title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.date {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Page Content */
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.page-title h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Search & Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-bar .form-group {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 200px;
+}
+
+.dashboard-filter-bar {
+    align-items: flex-end;
+    margin-bottom: 0;
+}
+
+.dashboard-filter-info {
+    flex: 2;
+    min-width: 260px;
+}
+
+.dashboard-filter-hint {
+    display: block;
+    margin-bottom: 0.375rem;
+}
+
+.dashboard-filter-actions {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+.dashboard-filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.laporan-filter-bar {
+    align-items: flex-end;
+    margin-bottom: 0;
+}
+
+.laporan-filter-info {
+    flex: 2;
+    min-width: 260px;
+}
+
+.laporan-filter-actions {
+    flex: 0 0 auto;
+    min-width: auto;
+    margin-left: auto;
+}
+
+.laporan-filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.laporan-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.laporan-card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.laporan-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.laporan-card-subtitle {
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+.laporan-kpi-card {
+    cursor: pointer;
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.laporan-kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.laporan-kpi-card:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.95);
+    outline-offset: 2px;
+}
+
+.laporan-kpi-hint {
+    opacity: 0.9;
+    font-size: 0.72rem;
+}
+
+.laporan-total-row {
+    background-color: #f3f4f6;
+    font-weight: 700;
+}
+
+.laporan-summary-totals {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #d1d5db;
+    display: grid;
+    gap: 0.375rem;
+}
+
+.laporan-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.dashboard-activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.dashboard-activity-subtitle {
+    font-size: 0.8125rem;
+    color: #6b7280;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-buttons .btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    #toggleSidebar {
+        display: block;
+    }
+
+    .topbar {
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .page-actions {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .page-content {
+        max-width: 100%;
+    }
+
+    .filter-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .filter-bar .form-group {
+        width: auto;
+        min-width: 0;
+        flex: 1 1 150px;
+    }
+
+    .filter-bar .form-group[style*="flex: 2"] {
+        flex: 1 1 100% !important;
+    }
+
+    .filter-bar .form-group[style*="flex: 0 0 auto"] {
+        flex: 1 1 100% !important;
+    }
+
+    .dashboard-filter-info,
+    .laporan-filter-info {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .dashboard-filter-actions,
+    .laporan-filter-actions {
+        flex: 1 1 100%;
+        min-width: 100%;
+        margin-left: 0;
+    }
+
+    .dashboard-filter-buttons,
+    .laporan-filter-buttons {
+        width: 100%;
+    }
+
+    .dashboard-filter-buttons .btn,
+    .laporan-filter-buttons .btn {
+        flex: 1 1 calc(50% - 0.25rem);
+    }
+
+    .laporan-card-actions {
+        width: 100%;
+    }
+
+    .laporan-card-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .filter-bar .form-group {
+        flex: 1 1 100%;
+    }
+
+    .dashboard-filter-buttons .btn,
+    .laporan-filter-buttons .btn {
+        flex: 1 1 100%;
+    }
+}
+
+/* Hide elements by role */
+.petugas-only,
+.admin-only {
+    display: none;
+}
+
+body.role-petugas .petugas-only {
+    display: block;
+}
+
+body.role-admin .admin-only {
+    display: block;
+}
+
+/* Tables responsive */
+@media (max-width: 640px) {
+    .table-container {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+    }
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .dashboard-activity-subtitle {
+        width: 100%;
+    }
+
+    .laporan-card-subtitle {
+        width: 100%;
+    }
+}
