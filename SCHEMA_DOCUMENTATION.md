@@ -222,7 +222,7 @@ CREATE DATABASE pamsimas_db;
 \c pamsimas_db
 
 # Execute schema (from root directory)
-\i ../database_schema.sql
+\i database_schema.sql
 ```
 
 ### Atau menggunakan Python
@@ -230,10 +230,9 @@ CREATE DATABASE pamsimas_db;
 ```python
 from app.database import engine
 from sqlalchemy import text
-import os
 
-# Baca file schema.sql dari root directory
-schema_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'database_schema.sql')
+# Baca file database_schema.sql dari current directory
+schema_path = 'database_schema.sql'
 with open(schema_path, 'r') as f:
     schema_sql = f.read()
 

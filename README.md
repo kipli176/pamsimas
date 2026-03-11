@@ -80,6 +80,7 @@ docker-compose up -d
 ## 📖 Documentation
 
 - **[Panduan Pengguna](PANDUAN_PENGGUNAAN.md)** - Panduan lengkap untuk Admin & Petugas
+- **[Database Schema Documentation](SCHEMA_DOCUMENTATION.md)** - Dokumentasi teknis database lengkap
 - **[API Documentation](http://localhost:8000/docs)** - Swagger UI (klik di docs/ → FastAPI)
 
 ## 🗄️ Database Schema
