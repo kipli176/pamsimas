@@ -130,7 +130,7 @@ pamsimas/
 │   │   ├── models/         # SQLAlchemy Models
 │   │   ├── schemas/        # Pydantic Schemas
 │   │   └── utils/          # Helper Functions
-│   ├── schema.sql          # Database Schema (detailed)
+│   ├── schema.sql          # Database Schema (copy dari root)
 │   ├── uploads/            # Upload directory (foto meteran)
 │   ├── Dockerfile
 │   └── requirements.txt
